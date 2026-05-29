@@ -1,18 +1,15 @@
 package projeto;
 
 public class Contato {
-	private String nome;
-	private String telefone;
+	String nome;
+	String telefone;
 	
-	public Contato(String nome, String telefone) { // construtor
+	public Contato(String nome, String telefone) { 
 		this.nome = nome;
 		this.telefone = telefone;
 	}
-	public String getNome() {
-		return nome;
-	}
-	public String getTelefone() {
-		return telefone;
+	public String toString() {
+		return "Nome: " + nome + "\n Telefone: " + telefone + "\n ------------";
 	}
 }
 
