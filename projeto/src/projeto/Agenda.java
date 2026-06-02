@@ -19,13 +19,15 @@ public class Agenda {
 	}
 
 	void listarContatos() {
-		if(qtdAtual>0) {
-			for(int i = 0; i<qtdAtual;i++) {
-				System.out.println(contatos[i]);
-			}
-		}
-	}
+	    if(qtdAtual == 0) {
+	        System.out.println("Nenhum contato cadastrado.");
+	        return;
+	    }
 
+	    for(int i = 0; i < qtdAtual; i++) {
+	        System.out.println(contatos[i]);
+	    }
+	}
 	Contato buscarContatos(String nome) {
 		for(int i = 0; i < qtdAtual; i++) {
 			if(contatos[i].nome.equalsIgnoreCase(nome)) {
@@ -44,6 +46,7 @@ public class Agenda {
 			for(int i = 0;i<qtdAtual;i++) {
 				if(contatos[i].nome.equalsIgnoreCase(nome)) {
 					posicao = i;
+					break;
 				}
 			}
 		}

@@ -20,19 +20,23 @@ public class AgendaController {
             opcao = sc.nextInt();
             sc.nextLine();
             switch(opcao) {
-            	case 1:
-            		System.out.println("Digite o nome do contato: ");
-            		String nome = sc.nextLine();
-            		System.out.println("Digite o telefone do seu contato: ");
-            		String tel = sc.nextLine();
-            		Contato con = new Contato(nome, tel);
-            		boolean cadastrou = ag.cadastrarContato(con);
-            		if(cadastrou) {
-            			System.out.println("Contato cadastrado!");
-            		} else
-            			System.out.println("Agenda cheia!");
-            		
+            case 1:
+                if(ag.qtdAtual >= ag.contatos.length) {
+                    System.out.println("Agenda cheia!");
                     break;
+                }
+
+                System.out.println("Digite o nome do contato: ");
+                String nome = sc.nextLine();
+
+                System.out.println("Digite o telefone do seu contato: ");
+                String tel = sc.nextLine();
+
+                Contato con = new Contato(nome, tel);
+
+                ag.cadastrarContato(con);
+                System.out.println("Contato cadastrado!");
+                break;
                 case 2:
                 	System.out.println("Digite o nome do contato: ");
                 	String n = sc.nextLine();
