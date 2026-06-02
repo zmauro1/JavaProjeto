@@ -1,6 +1,6 @@
 package projeto;
 import java.util.Scanner;
-public class Main {
+public class AgendaController {
 	static Scanner sc = new Scanner(System.in);
 	public static void main(String [] args) {
 		System.out.println("Quantos contatos sua agenda comporta?: ");

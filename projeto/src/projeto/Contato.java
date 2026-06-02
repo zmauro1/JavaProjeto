@@ -9,7 +9,7 @@ public class Contato {
 		this.telefone = telefone;
 	}
 	public String toString() {
-		return "Nome: " + nome + "\n Telefone: " + telefone + "\n ------------";
+		return "Nome: " + nome + "\nTelefone: " + telefone + "\n ------------";
 	}
 }
 
