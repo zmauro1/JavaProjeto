@@ -21,8 +21,8 @@ public class AgendaController {
             sc.nextLine();
             switch(opcao) {
             case 1:
-                if(ag.qtdAtual >= ag.contatos.length) {
-                    System.out.println("Agenda cheia!");
+                if(ag.agendaCheia()) {
+                    System.out.println("A agenda está cheia!");
                     break;
                 }
 
@@ -31,6 +31,10 @@ public class AgendaController {
 
                 System.out.println("Digite o telefone do seu contato: ");
                 String tel = sc.nextLine();
+                if(ag.buscarContatoPorTelefone(tel) != null) {
+                    System.out.println("Esse telefone já está cadastrado na agenda.");
+                    break;
+                }
 
                 Contato con = new Contato(nome, tel);
 
@@ -38,13 +42,17 @@ public class AgendaController {
                 System.out.println("Contato cadastrado!");
                 break;
                 case 2:
+                	if(ag.agendaVazia()) {
+                		System.out.println("Não há contatos cadastrados.");
+                		break;
+                	}
                 	System.out.println("Digite o nome do contato: ");
                 	String n = sc.nextLine();
                 	Contato achou = ag.buscarContatos(n);
                 	if(achou!=null) {
                 		System.out.println(achou);
                 	} else {
-                		System.out.println("Contato não encontrado");
+                		System.out.println("Contato não encontrado.");
                 	}
                     
                     break;
@@ -53,6 +61,10 @@ public class AgendaController {
                     
                     break;
                 case 4:
+                	if(ag.agendaVazia()) {
+                		System.out.println("Não há contatos cadastrados.");
+                		break;
+                	}
                 	System.out.println("Digite o nome do contato que deseja remover: ");
                 	String n1 = sc.nextLine();
                 	boolean removeu = ag.removerContatoPorNome(n1);

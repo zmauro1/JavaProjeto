@@ -25,7 +25,9 @@ public class Agenda {
 	    }
 
 	    for(int i = 0; i < qtdAtual; i++) {
+	    	System.out.println("Contato " + (i + 1));
 	        System.out.println(contatos[i]);
+	        System.out.println("----------------");
 	    }
 	}
 	Contato buscarContatos(String nome) {
@@ -37,8 +39,20 @@ public class Agenda {
 		}
 		return null;
 	}
-
-		
+	boolean agendaVazia() {
+		return qtdAtual==0;
+	}
+	Contato buscarContatoPorTelefone(String telefone) {
+	    for(int i = 0; i < qtdAtual; i++) {
+	        if(contatos[i].telefone.equals(telefone)) {
+	            return contatos[i];
+	        }
+	    }
+	    return null;
+	}
+	boolean agendaCheia() {
+		return qtdAtual >= contatos.length;
+	}
 
 	boolean removerContatoPorNome(String nome) {
 		int posicao = -1;
